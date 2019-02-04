@@ -1,0 +1,16 @@
+install.packages("ggplot2")
+install.packages("summarytools")
+
+library(reshape2)
+library(plyr)
+library(psych)
+library(tidyr)
+library(ggplot2)
+library(summarytools)
+
+boston<-read.csv("/users/su/downloads/boston.csv")
+price <- as.data.frame(boston$MEDV)
+features <- boston[,-14]
+
+mydata <- summarytools::descr(boston)
+write.csv(mydata,"/users/su/downloads/bostonstatistic.csv" )
